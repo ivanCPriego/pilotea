@@ -1,0 +1,31 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  font-family: 'Brutalista';
+}
+b{
+  font-family: 'Brutalista-bold';
+}
+/*default version*/
+@font-face {
+	font-family: 'Brutalista';
+  src: url('../fonts/BrutalistaRegular.eot'); 
+	src: 
+		local('Brutalista'),
+		url('../fonts/Brutalista-regular.otf') 
+		format('opentype');
+}
+/*bold version*/
+@font-face {
+	font-family: 'Brutalista-bold';
+	src: url('../fonts/BrutalistaBoldRegular.eot'); 
+	src: 
+		local('Brutalista'),
+		url('../fonts/Brutalista-bold.otf') 
+		format('opentype');
+	font-weight: bold;
+}
