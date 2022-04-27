@@ -2,6 +2,7 @@
   --pale-peach: #fde1ad;
   --greenish-turquoise: #00eca1;
   --1-dark: #283a3e;
+  --almost-black:#101e21
 }
 
 * {
@@ -54,7 +55,7 @@ button.btn {
   font-size: 12px;
   margin: 0 auto;
   padding: 10px 10px;
-  border-radius: 18px;
+  border-radius: 30px;
   display: block;
   cursor: pointer;
   box-shadow:
@@ -63,46 +64,59 @@ button.btn {
   0 3px 4px 0 rgba(0, 0, 0, 0.1);
   transition: .5s;
 }
+.btn.btn_line{
+  background-color: transparent;
+  border: 2px solid var(--greenish-turquoise);
+  color: #fff;
+}
 button.btn:hover{
   box-shadow:
   0 1px 8px 0 rgba(0, 0, 0, 0.15), 
   0 3px 3px -2px rgba(0, 0, 0, 0.15), 
   0 3px 4px 0 rgba(0, 0, 0, 0.15);
 }
-
 h1 {
   font-size: 30px;
   margin-bottom: 40px;
 }
-
 h4 {
   font-size: 24px;
 }
-
 h5 {
   font-size: 16px;
 }
-
 .p-copy {
   margin: 40px 0 10px;
   font-size: 20px;
 }
-
+.back_modal{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  display: none;
+}
+.back_modal.active{
+  display: block;
+  z-index: 9;
+}
 /* NAV */
-nav ul {
+nav ul.desktop_menu {
   display: flex;
   list-style: none;
   justify-content: space-between;
   align-items: center;
 }
-nav ul li {
+nav ul.desktop_menu li {
   margin: 0 5px;
   cursor: pointer;
   border-bottom: 2px solid #fff;
   transition: .5s;
 }
-nav ul li.nav_login:hover,
-nav ul li.item_desktop:hover{
+nav ul.desktop_menu li.nav_login:hover,
+nav ul.desktop_menu li.item_desktop:hover{
   border-bottom: 2px solid var(--greenish-turquoise);
 }
 nav ul .item_desktop {
@@ -134,7 +148,84 @@ nav hr{
   background: #e5e4e1;
   height: 70px;
 }
-
+nav .box_menu_mobile{
+  background: var(--almost-black);
+  position: absolute;
+  top: -150%;
+  width: 100vw;
+  right: 0;
+  box-sizing: border-box;
+  transition: all .4s ease-in;
+  opacity: 0;
+}
+nav .box_menu_mobile.active {
+  top: 0;
+  opacity: 1;
+  z-index: 99;
+}
+nav .box_menu_mobile .body_menu{
+  background: #283a3e;
+}
+nav .box_menu_mobile .body_menu ul{
+  border-bottom: 1px solid #1d2d30;
+  padding: 20px;
+}
+nav .box_menu_mobile .body_menu ul li{
+  color: #fff;
+  cursor: pointer;
+  list-style: none;
+  margin:35px 0;
+}
+nav .box_menu_mobile .body_menu ul li:hover{
+  color: var(--greenish-turquoise);
+}
+nav .box_menu_mobile .header_menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 20px;
+}
+nav .box_contact p.atencion_clientes {
+  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--pale-peach);
+}
+nav .box_contact p.titulo_telefono{
+  color: #fff;
+}
+nav .box_contact p.num_whats{
+  color: var(--greenish-turquoise);
+}
+nav .box_contact p.num_whats img{
+  margin-right: 10px;
+  margin-bottom: -3px;
+}
+nav .box_contact .text_contacto {
+  padding: 30px;
+}
+nav .box_menu_mobile .footer_menu{
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 22px;
+}
+nav .box_contact{
+  display: flex;
+}
+nav .box_contact .redes_contacto{
+  border-right: 1px solid #1d2d30;
+  padding: 30px 20px;
+}
+nav .box_contact .redes_contacto a{
+  margin-bottom:35px;
+  display: block;
+}
+.box_contact .redes_contacto a span{
+  color: #fff;
+  display: none;
+}
+.box_contact .redes_contacto a img{
+  margin: 0 5px -3px 0;
+}
 /* HEADER */
 .box_header_text {
   background: linear-gradient(to bottom, var(--pale-peach) 70%, var(--greenish-turquoise));
@@ -237,6 +328,13 @@ nav hr{
     padding-left: 30px;
     padding-right: 30px
   }
+  .box_contact .redes_contacto a span{
+    display: inline-block;
+  }
+  .footer_menu button.btn{
+    width: 40%;
+    max-width: 300px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -298,5 +396,13 @@ nav hr{
   }
   .animte_slider{
     overflow: hidden;
+    scroll-behavior: smooth;
+  }
+  h2{ font-size: 36px; }
+  nav .box_menu_mobile.active{
+    display: none;
+  }
+  .back_modal.active{
+    display: none;
   }
 }
